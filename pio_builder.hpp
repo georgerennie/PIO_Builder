@@ -207,13 +207,13 @@ public:
 
 	constexpr uint8_t nop(
 	    const uint8_t delay = 0, const uint8_t side_set = 0, const bool side_set_en = 1) {
-		return nop_at(current_idx++);
+		return nop_at(current_idx++, delay, side_set, side_set_en);
 	}
 
 	constexpr uint8_t nop_at(
 	    const uint8_t instr_idx, const uint8_t delay = 0, const uint8_t side_set = 0,
 	    const bool side_set_en = 1) {
-		return mov_at(MovDest::Y, MovSrc::Y, MovOp::None, delay, side_set, side_set_en);
+		return mov_at(instr_idx, MovDest::Y, MovSrc::Y, MovOp::None, delay, side_set, side_set_en);
 	}
 
 	constexpr uint8_t set(
@@ -233,7 +233,7 @@ public:
 	constexpr void set_origin(const uint8_t origin) { program.origin = origin; }
 	constexpr void set_write_idx(const uint8_t idx) { current_idx = idx; }
 
-	constexpr uint8_t wrap() { return wrap_at(current_idx); }
+	constexpr uint8_t wrap() { return wrap_at(current_idx - 1); }
 	constexpr uint8_t wrap_at(const uint8_t new_wrap_idx) { return wrap_idx = new_wrap_idx; }
 
 	constexpr uint8_t wrap_target() { return wrap_target_at(current_idx); }

@@ -21,7 +21,7 @@ int main() {
 	configure_program();
 
 	// todo get free sm
-	PIO pio = pio0;
+	PIO pio     = pio0;
 	uint offset = pio_add_program(pio, blink_program);
 	printf("Loaded program at %d\n", offset);
 

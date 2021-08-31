@@ -6,16 +6,13 @@ pico_sdk_init()
 
 set(CXX_STANDARD 14)
 
-
-add_executable(pio_blinky
-	pio_blinky.cpp
-)
-
+add_executable(pio_blinky pio_blinky.cpp)
 target_include_directories(pio_blinky PRIVATE ../)
+target_link_libraries(pio_blinky pico_stdlib hardware_pio)
 
-target_link_libraries(pio_blinky
-	pico_stdlib
-	hardware_pio
-)
+add_executable(jit_delay jit_delay.cpp)
+target_include_directories(jit_delay PRIVATE ../)
+target_link_libraries(jit_delay pico_stdlib hardware_pio)
 
 pico_add_extra_outputs(pio_blinky)
+pico_add_extra_outputs(jit_delay)
