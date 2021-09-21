@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2021 George Rennie
+// SPDX-License-Identifier: BSD-3-Clause
+
 // This demo turns on and off pin 0 with the period being determined
 // dynamically. The program could be repeatedly reconfigured with different
 // values
