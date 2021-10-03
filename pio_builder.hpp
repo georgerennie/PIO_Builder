@@ -72,11 +72,11 @@ enum class SetDest : uint8_t {
 template <typename T, T DEFAULT>
 struct NewType {
 private:
-	const T val;
+	const T val{DEFAULT};
 
 public:
-	constexpr NewType() : val(DEFAULT) {}
-	constexpr NewType(const T val) : val(val) {}
+	constexpr NewType() = default;
+	constexpr NewType(const T val) : val{val} {}
 	constexpr operator T() const { return val; }
 };
 
