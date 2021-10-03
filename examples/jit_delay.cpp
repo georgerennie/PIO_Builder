@@ -6,8 +6,8 @@
 // values
 
 #include <stdio.h>
-#include "hardware/pio.h"
 #include "hardware/clocks.h"
+#include "hardware/pio.h"
 #include "pio_builder.hpp"
 
 void configure_program(PIO pio, uint sm, uint pin, uint8_t output_period) {
@@ -17,8 +17,8 @@ void configure_program(PIO pio, uint sm, uint pin, uint8_t output_period) {
 	auto half_period = output_period / 2;
 
 	p.wrap_target();
-	p.nop(half_period, 1);
-	p.nop(half_period, 0);
+	p.nop(half_period, SideSet(1));
+	p.nop(half_period, SideSet(0));
 	p.wrap();
 
 	uint offset = pio_add_program(pio, p);
@@ -39,4 +39,3 @@ int main() {
 	configure_program(pio, 0, 0, 20);
 	pio_sm_set_enabled(pio, 0, true);
 }
-
