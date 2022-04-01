@@ -104,6 +104,8 @@ public:
 
 	constexpr uint16_t& operator[](std::size_t idx) { return instructions[idx]; }
 
+	constexpr size_t size() const { return LEN; }
+
 	constexpr inline pio_sm_config get_default_config(uint16_t offset) const {
 		auto config = pio_get_default_sm_config();
 		sm_config_set_wrap(&config, offset + wrap_target_idx, offset + wrap_idx);
