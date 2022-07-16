@@ -15,7 +15,7 @@ See the RP2040 documentation for details of the PIO design.
 A program can optionally have its number of side set pins, side set opt and
 side set pindirs set through template args, with defaults used otherwise
 ```cpp
-PIOBuilder::Program<LEN = 32, SIDE_SET_PINS = 0, SIDE_SET_OPT = false, SIDE_SET_PINDIRS = false>
+PIOBuilder::Program<SIDE_SET_PINS = 0, SIDE_SET_OPT = false, SIDE_SET_PINDIRS = false>
 ```
 
 To create your own program, create a class deriving from PIOBuilder:
