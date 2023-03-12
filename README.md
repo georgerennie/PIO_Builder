@@ -1,5 +1,5 @@
 # PIO_Builder
-C++ code for runtime generation of RPi RP2040 PIO programs
+Single header C++14 library for runtime generation of RPi RP2040 PIO programs
 
 See `examples` for example code. `examples/i2c.cpp` provides a good example of
 a more involved program, and the other examples show how to use PIOBuilder with
